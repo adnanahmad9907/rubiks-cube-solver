@@ -1,24 +1,27 @@
 //
-// Created by Shubham Patil on 17/12/21.
+// Created by adnan ahmad
 //
 
-#ifndef RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
+// to get saved from the error of the compiler we are usinng directive for this
+#ifndef RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H // if not defined then it will continue else it will not coninue further
 #define RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
 
 #include "bits/stdc++.h"
 
 using namespace std;
 
-/**
- * A base class for all Rubik's Cube Model. There are various representation for Rubik's Cube.
- * Each one has it's own special ways of definitions. This class provides a shared functionality
- * between all models.
- * We'll benchmark all models and observe which one is better for performance.
- */
+//  * A base class for all Rubik's Cube Model. There are various representation for Rubik's Cube.
+//  * Each one has it's own special ways of definitions. This class provides a shared functionality
+//  * between all models.
+//  * We'll benchmark all models and observe which one is better for performance.
 
-class RubiksCube {
+// we are defining our base class that will contain all the data with in it for each type we will modify this to work upon
+class RubiksCube
+{
 public:
-    enum class FACE {
+    // we are using enum classes to make better code readabilty eariler we were using variable that does not make sensed
+    enum class FACE
+    {
         UP,
         LEFT,
         FRONT,
@@ -27,7 +30,10 @@ public:
         DOWN
     };
 
-    enum class COLOR {
+    // for each color we do have our name gernarlly we put white in front
+
+    enum class COLOR
+    {
         WHITE,
         GREEN,
         RED,
@@ -36,13 +42,28 @@ public:
         YELLOW
     };
 
-    enum class MOVE {
-        L, LPRIME, L2,
-        R, RPRIME, R2,
-        U, UPRIME, U2,
-        D, DPRIME, D2,
-        F, FPRIME, F2,
-        B, BPRIME, B2
+    // for each type of move we have this that we will pe using left right up down front and back
+    // l means left side clock direction keeping the face same and l prime just opposite and we can also do for r
+    enum class MOVE
+    {
+        L,
+        LPRIME,
+        L2,
+        R,
+        RPRIME,
+        R2,
+        U,
+        UPRIME,
+        U2,
+        D,
+        DPRIME,
+        D2,
+        F,
+        FPRIME,
+        F2,
+        B,
+        BPRIME,
+        B2
     };
 
     /*
@@ -52,13 +73,18 @@ public:
      * The rows and columns are 0-indexed.
      * @param Face, row, and column index
      */
+
     virtual COLOR getColor(FACE face, unsigned row, unsigned col) const = 0;
+    // okay we are using this class to return the pieces color at the given face and row and column
+
+    // cosnt=0 means that this function is pure virtual function and it will be implemented in the derived class
 
     /*
      * Returns the first letter of the given COLOR
      * Eg: For COLOR::GREEN, it returns 'G'
      */
     static char getColorLetter(COLOR color);
+    // we are using static function to get the color letter of the given color (static because this will be used by us only not the objects)
 
     /*
      * Returns true if the Rubik Cube is solved, otherwise returns false.
@@ -113,6 +139,7 @@ public:
      *
      */
     void print() const;
+    // const means it does not change the state of the
 
     /*
      * Randomly shuffle the cube with 'times' moves and returns the moves performed.
@@ -122,6 +149,8 @@ public:
     /*
      * Perform moves on the Rubik Cube
      */
+
+    // that is used to perform the move and also revert it
     RubiksCube &move(MOVE ind);
 
     /*
@@ -176,6 +205,9 @@ public:
 
     virtual RubiksCube &b2() = 0;
 
+    // these are extra fucntion that we willl be using in futrue for our coding
+    // to deal with the corner
+
     string getCornerColorString(uint8_t ind) const;
 
     uint8_t getCornerIndex(uint8_t ind) const;
@@ -183,5 +215,4 @@ public:
     uint8_t getCornerOrientation(uint8_t ind) const;
 };
 
-
-#endif //RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
+#endif // RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
