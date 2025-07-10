@@ -9,3 +9,8 @@ IDDFS	        O(b^d)	           O(d)
 
 
 proof for iddfs b^1 +b^2+b^3... b^d == b^d only or almost the same complexity
+
+
+for a* it is b^d + b^d in tc+sc 
+for ida* it is b^d + d (tc+sc)
+// it is worst case not the orignal cases
