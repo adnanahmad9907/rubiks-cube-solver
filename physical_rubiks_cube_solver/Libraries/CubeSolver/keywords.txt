@@ -1,0 +1,26 @@
+#Data types
+Cube	KEYWORD1
+CubeSolver	KEYWORD1
+
+#Methods and Functions
+define	KEYWORD2
+solve		KEYWORD2
+display	KEYWORD2
+turn	KEYWORD2
+getMoveNum	KEYWORD2
+getMove	KEYWORD2
+printCommands	KEYWORD2
+
+
+#Constants
+top	LITERAL1
+bottom	LITERAL1
+front	LITERAL1
+back	LITERAL1
+right	LITERAL1
+left	LITERAL1
+
+
+
+
+
